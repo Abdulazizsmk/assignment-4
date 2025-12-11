@@ -1,0 +1,211 @@
+:root {
+  --bg: #f8f9fa;
+  --fg: #1f2937;
+  --secondary: #4b5563;
+  --primary: #1e3a8a;
+  --accent: #93c5fd;
+  --card-bg: #ffffff;
+}
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --fg: #e2e8f0;
+  --secondary: #9ca3af;
+  --primary: #1e2937;
+  --accent: #60a5fa;
+  --card-bg: #1e293b;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--fg);
+  transition: background .3s ease, color .3s ease;
+}
+h1,h2,h3 { font-family: 'Poppins', sans-serif; margin:0 0 16px; line-height:1.2; }
+h1{ font-size:2.5rem; font-weight:700;}
+h2{ font-size:2rem; font-weight:600;}
+h3{ font-size:1.4rem; font-weight:600;}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.brand { font-family: 'Poppins', sans-serif; font-size:1.6rem; font-weight:700; }
+.brand-first { color: #ffffff; }
+.brand-last { color: var(--accent); font-weight:400; margin-left:4px; }
+
+.main-nav button {
+  background: transparent;
+  border: none;
+  color: #f9fafb;
+  font-size: 1rem;
+  margin: 0 10px;
+  padding: 6px 4px;
+  position: relative;
+  cursor: pointer;
+  font-weight:500;
+  transition: color 0.3s;
+}
+.main-nav button:hover { color:#cbd5e1; }
+.main-nav button::after {
+  content:"";
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0%;
+  height:2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.main-nav button:hover::after,
+.main-nav button.active::after { width:100%; }
+#theme-toggle { font-size:1.2rem; margin-left:20px; cursor:pointer; transition: transform .2s;}
+#theme-toggle:hover { transform: rotate(20deg); }
+
+.container { max-width: 1000px; margin:0 auto; padding:20px; }
+.panel { display: none; opacity:0; transform:translateY(20px); transition: all 0.4s ease; }
+.panel.active { display:block; opacity:1; transform:translateY(0); }
+
+.hero {
+  background: url('https://picsum.photos/id/870/1600/700?blur=3') no-repeat center/cover;
+  border-radius:16px;
+  min-height:480px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:40px;
+}
+.hero-inner {
+  background: rgba(0,0,0,0.65);
+  color:white;
+  text-align:center;
+  padding:40px;
+  border-radius:12px;
+  width:90%;
+  max-width:700px;
+}
+.hero-controls { margin-top:16px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.hero-controls input { padding:8px 12px; border-radius:6px; border:none; width:180px; }
+.hero-controls button { padding:8px 14px; border-radius:6px; border:none; cursor:pointer; font-weight:600; background:var(--accent); color:#fff; transition: all .3s;}
+.hero-controls button:hover{ background:var(--primary); }
+
+.projects-controls { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
+.projects-controls input, .projects-controls select { padding:6px 10px; border-radius:6px; border:1px solid #ccc; }
+
+.projects-list {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap:20px;
+}
+.project-card {
+  background: var(--card-bg);
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  overflow:hidden;
+  transition: transform .3s;
+}
+.project-card:hover{ transform:translateY(-6px); }
+.project-card img { width:100%; height:180px; object-fit:cover; }
+.project-card h3 { padding:12px; margin:0; font-size:1.1rem; }
+.details-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius:6px;
+  margin: 0 12px 12px;
+  cursor:pointer;
+}
+.details-btn:hover { background: var(--accent); }
+.project-details { padding:0 12px; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; }
+.project-details.open{ padding:12px; max-height:200px; }
+.empty-state { text-align:center; padding:40px; color:var(--secondary); font-style:italic; }
+
+form{ display:flex; flex-direction:column; gap:16px; max-width:500px; margin-top:20px; }
+input, textarea{ padding:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+button[type="submit"]{ background:var(--primary); color:white; }
+button[type="submit"]:hover{ background:var(--accent); }
+.site-footer{ text-align:center; padding:24px; margin-top:40px; border-top:1px solid rgba(0,0,0,.1); font-size:.9rem;}
+/* -----------------------------
+   Card Base Styles
+------------------------------*/
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* -----------------------------
+   Visitor Info Card Decorations
+------------------------------*/
+.visitor-card::before,
+.visitor-card::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  opacity: 0.2;
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+.visitor-card::before {
+  top: -20px;
+  left: -20px;
+}
+
+.visitor-card::after {
+  bottom: -20px;
+  right: -20px;
+}
+
+/* Rainbow Animated Joke Button */
+.joke-card button {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #42f5d4, #ffeb3b);
+  background-size: 800% 800%;
+  animation: rainbowButton 4s ease infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.joke-card button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Keyframes for rainbow animation */
+@keyframes rainbowButton {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdulaziz Saud | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-first">Abdulaziz</span>
+      <span class="brand-last">Saud</span>
+    </div>
+    <nav class="main-nav">
+      <button class="nav-btn active" data-target="home">Home</button>
+      <button class="nav-btn" data-target="about">About</button>
+      <button class="nav-btn" data-target="projects">Projects</button>
+      <button class="nav-btn" data-target="contact">Contact</button>
+      <button id="theme-toggle">🌓</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="home" class="panel active">
+      <div class="hero">
+        <div class="hero-inner">
+          <h1>Welcome to My Portfolio</h1>
+          <p>Explore my projects, creative designs, and web development experiments — built with precision and passion.</p>
+          <div class="hero-controls">
+            <input type="text" id="name-input" placeholder="Enter your name" />
+            <button id="save-name">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assignment 3 Features -->
+      <div id="visit-section">
+        <h2>Visitor Info</h2>
+        <p>You have visited this site <span id="visitCount"></span> times.</p>
+        <p>You have been on this page for <span id="timer">0</span> seconds.</p>
+      </div>
+
+      <div id="joke-section">
+        <h2>Random Joke</h2>
+        <button id="jokeBtn">Get a Joke</button>
+        <p id="joke"></p>
+      </div>
+
+      <div id="conditional-section">
+        <p id="conditionalMessage"></p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="panel">
+      <h2>About Me</h2>
+      <p>Hello! I’m <strong>Abdulaziz Saud</strong>, a SWE363 student passionate about clean design, interactivity, and accessible web experiences.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="panel">
+      <h2>Projects</h2>
+      <div class="projects-controls">
+        <input id="project-search" placeholder="Search projects..." aria-label="Search projects" />
+        <select id="project-filter">
+          <option value="all">All Categories</option>
+          <option value="web">Web</option>
+          <option value="design">Design</option>
+          <option value="data">Data</option>
+        </select>
+        <select id="project-sort">
+          <option value="title-asc">Title A→Z</option>
+          <option value="title-desc">Title Z→A</option>
+        </select>
+      </div>
+      <div id="projects-list" class="projects-list"></div>
+      <div id="projects-empty" class="empty-state hidden">No projects found.</div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="panel">
+      <h2>Contact Me</h2>
+      <form id="contact-form" novalidate>
+        <label>
+          Name
+          <input type="text" id="contact-name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" id="contact-email" required />
+        </label>
+        <label>
+          Message
+          <textarea id="contact-msg" required minlength="10"></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit">Send Message</button>
+        </div>
+        <div id="form-feedback" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> Abdulaziz Saud</footer>
+
+</body>
+</html>
