@@ -2,7 +2,7 @@
 # assignment 4
 
 ## About the Project
-This project is a [brief description of your project, e.g., interactive web application, visualization tool, or simulation]. It demonstrates practical use of HTML, CSS, and JavaScript to create a functional and interactive experience.
+This project is a Personal Portfolio Website Application. It demonstrates practical use of HTML, CSS, and JavaScript to create a functional and interactive experience.
 
 ## Features
 - Interactive elements that respond to user input.
